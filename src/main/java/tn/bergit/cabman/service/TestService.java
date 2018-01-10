@@ -8,5 +8,6 @@ public interface TestService {
 
 	
 	public List<TestDTO> findAllByCategorie(String iCategorieName);
+	public void testFn();
 	
 }

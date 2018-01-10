@@ -20,12 +20,28 @@ import tn.bergit.cabman.service.TestService;
  */
 
 @RestController
-@RequestMapping(value = "api/cabman")
+@RequestMapping(value = "/api/cabman")
 public class TestController extends BaseController {
 
 	
 	private @Autowired TestService gTestService;
 	
+	
+	
+	
+	/**
+	 * 
+	 * @param iCategorieName
+	 * @return
+	 */
+	@RequestMapping(path = "/testfn", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public void testFn()
+	{
+		LOGGER.info("TestController::findAllByCategorie::Données reçus {}");
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		gTestService.testFn();
+		
+	}
 	
 	
 	/**

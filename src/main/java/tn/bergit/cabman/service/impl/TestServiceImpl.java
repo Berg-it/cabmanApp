@@ -1,10 +1,12 @@
-package tn.bergit.cabman.repository.impl;
+package tn.bergit.cabman.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.bergit.cabman.dto.TestDTO;
+import tn.bergit.cabman.repository.TestRepository;
 import tn.bergit.cabman.service.TestService;
 
 /**
@@ -15,10 +17,19 @@ import tn.bergit.cabman.service.TestService;
 @Service
 public class TestServiceImpl implements TestService {
 
+	
+	@Autowired
+	TestRepository gTestRepository;
+	
 	@Override
 	public List<TestDTO> findAllByCategorie(String iCategorieName) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void testFn() {
+		gTestRepository.testFn();
 	}
 
 }
