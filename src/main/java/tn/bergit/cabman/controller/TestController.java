@@ -18,6 +18,7 @@ import tn.bergit.cabman.service.TestService;
  * @author ABG
  *
  */
+//http://localhost:8090/api/cabman/testfn
 
 @RestController
 @RequestMapping(value = "/api/cabman")
@@ -38,7 +39,6 @@ public class TestController extends BaseController {
 	public void testFn()
 	{
 		LOGGER.info("TestController::findAllByCategorie::Données reçus {}");
-		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		gTestService.testFn();
 		
 	}
@@ -54,7 +54,6 @@ public class TestController extends BaseController {
 	{
 		LOGGER.info("TestController::findAllByCategorie::Données reçus {}", iCategorieName);
 		
-		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		List<TestDTO> vRp = gTestService.findAllByCategorie(iCategorieName);
 		
 		return vRp;
