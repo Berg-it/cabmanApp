@@ -1,0 +1,1 @@
+INSERT INTO "autority" (ID, NAME) VALUES(1, 'mkyong');
