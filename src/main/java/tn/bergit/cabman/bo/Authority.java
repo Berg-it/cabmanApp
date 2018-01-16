@@ -1,18 +1,23 @@
 package tn.bergit.cabman.bo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
-
 @Entity
-@Table(name = "AUTORITY")
+@Table(name = "AUTHORITY")
 public class Authority {
 
     @Id
@@ -23,23 +28,33 @@ public class Authority {
 
     @Column(name = "NAME", length = 50)
     @NotNull
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private AuthorityName name;
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
+    private List<User> users;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public AuthorityName getName() {
+        return name;
+    }
 
+    public void setName(AuthorityName name) {
+        this.name = name;
+    }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
