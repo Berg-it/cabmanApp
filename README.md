@@ -16,8 +16,21 @@ example:
 	private PasswordEncoder passwordEncoder;
 
 	user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
+
 ```
 	
 => Pour plus d'info regarder l'article suivante: http://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
 
 
+Exemple de token:
+```
+{
+  "ROLE": "ROLE_ADMIN",
+  "firstName": "Amine\n",
+  "lastName": "Berguiga",
+  "sub": "admin",
+  "aud": "web",
+  "exp": 2380205495,
+  "iat": 1516205495
+}
+```
