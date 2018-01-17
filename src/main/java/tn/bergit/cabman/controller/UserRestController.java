@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import tn.bergit.cabman.security.config.JwtTokenUtil;
 import tn.bergit.cabman.security.config.JwtUser;
 
+/**
+ * 
+ * @author ABG
+ *
+ */
 @RestController
 public class UserRestController {
 

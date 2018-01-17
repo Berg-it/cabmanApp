@@ -99,8 +99,15 @@ public class JwtTokenUtil implements Serializable {
         return (AUDIENCE_TABLET.equals(audience) || AUDIENCE_MOBILE.equals(audience));
     }
 
-    public String generateToken(UserDetails userDetails, Device device) {
-        Map<String, Object> claims = new HashMap<>();
+    public String generateToken(JwtUser userDetails, Device device) {
+    	/*
+    	 * info utilisateurs 
+    	 */
+    	Map<String, Object> claims = new HashMap<>();
+        claims.put("firstName", userDetails.getFirstname());
+        claims.put("lastName", userDetails.getLastname() );
+        userDetails.getAuthorities().stream().forEach(iItem->claims.put("ROLE", iItem.getAuthority()));
+
         return doGenerateToken(claims, userDetails.getUsername(), generateAudience(device));
     }
 
@@ -116,7 +123,7 @@ public class JwtTokenUtil implements Serializable {
                 .setAudience(audience)
                 .setIssuedAt(createdDate)
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 

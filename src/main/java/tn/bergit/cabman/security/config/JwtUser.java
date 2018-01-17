@@ -1,7 +1,6 @@
 package tn.bergit.cabman.security.config;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * 
+ * Authenticate User with Custom UserDetailsService
  * @author ABG
  *
  */
