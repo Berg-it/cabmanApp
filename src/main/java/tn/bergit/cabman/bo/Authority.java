@@ -1,5 +1,6 @@
 package tn.bergit.cabman.bo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -18,9 +19,14 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "AUTHORITY")
-public class Authority {
+public class Authority implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1206158680779000285L;
+
+	@Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "authority_seq")
     @SequenceGenerator(name = "authority_seq", sequenceName = "authority_seq", allocationSize = 1)

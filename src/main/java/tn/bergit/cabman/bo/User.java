@@ -1,5 +1,6 @@
 package tn.bergit.cabman.bo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -21,9 +22,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="USERS")
-public class User {
+public class User implements Serializable{
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8831284013434949780L;
+
+	@Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
