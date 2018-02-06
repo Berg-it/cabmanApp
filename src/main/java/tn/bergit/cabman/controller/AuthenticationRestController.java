@@ -23,7 +23,7 @@ import tn.bergit.cabman.security.config.JwtTokenUtil;
 import tn.bergit.cabman.security.config.JwtUser;
 
 @RestController
-public class AuthenticationRestController {
+public class AuthenticationRestController extends BaseController{
 
     @Value("${jwt.header}")
     public String tokenHeader;
@@ -46,7 +46,8 @@ public class AuthenticationRestController {
      */
     @RequestMapping(value = "${jwt.route.authentication.path}", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
-
+    	
+    	LOGGER.info("AuthenticationRestController::createAuthenticationToken {} ",authenticationRequest);
         // Perform the security
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
